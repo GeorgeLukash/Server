@@ -50,6 +50,9 @@
     <Compile Include="BlockExersiceModel.cs" />
     <Compile Include="BlockPostModel.cs" />
     <Compile Include="Diet\DietModel.cs" />
+    <Compile Include="Direction\CreateDirectionModel.cs" />
+    <Compile Include="Direction\MyDirectionModel.cs" />
+    <Compile Include="Direction\UpdateDirectionModel.cs" />
     <Compile Include="Enums\DayOfWeek.cs" />
     <Compile Include="Enums\KindOfSport.cs" />
     <Compile Include="Enums\TypeOfDiet.cs" />

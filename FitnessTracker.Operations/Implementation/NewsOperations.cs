@@ -20,32 +20,32 @@ namespace FitnessTracker.Operations.Implementation
 
         public ICollection<NewsModel> GetNews()
         {
-            using (StreamReader reader = new StreamReader("D:/news.txt"))
+            //using (StreamReader reader = new StreamReader("D:/news.txt"))
+            //{
+            //    var jsonString = reader.ReadToEnd();
+
+            //    return JsonConvert.DeserializeObject<ICollection<NewsModel>>(jsonString);
+            //}
+
+            var result = new List<NewsModel>();
+            WebRequest request = WebRequest.Create($"{url}{apiKey}");
+            using (StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream()))
             {
-                var jsonString = reader.ReadToEnd();
+                var json = JObject.Parse(objReader.ReadToEnd());
+                var articles = json.GetValue("articles");
 
-                return JsonConvert.DeserializeObject<ICollection<NewsModel>>(jsonString);
+                foreach (var item in articles)
+                {
+                    result.Add(JsonConvert.DeserializeObject<NewsModel>(item.ToString()));
+                }
             }
+            using (StreamWriter file = File.CreateText(@"D:\news.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
 
-            //var result = new List<NewsModel>();
-            //WebRequest request = WebRequest.Create($"{url}{apiKey}");
-            //using (StreamReader objReader = new StreamReader(request.GetResponse().GetResponseStream()))
-            //{
-            //    var json = JObject.Parse(objReader.ReadToEnd());
-            //    var articles = json.GetValue("articles");
-
-            //    foreach (var item in articles)
-            //    {
-            //        result.Add(JsonConvert.DeserializeObject<NewsModel>(item.ToString()));
-            //    }
-            //}
-            //using (StreamWriter file = File.CreateText(@"D:\news.txt"))
-            //{
-            //    JsonSerializer serializer = new JsonSerializer();
-
-            //    serializer.Serialize(file, result);
-            //}
-            //return result;
+                serializer.Serialize(file, result);
+            }
+            return result;
         }
     }
 }

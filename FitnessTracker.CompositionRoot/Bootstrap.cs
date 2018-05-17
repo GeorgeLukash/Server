@@ -26,6 +26,7 @@ namespace FitnessTracker.CompositionRoot
             container.Register<INewsOperations, NewsOperations>(new PerRequestLifeTime());
             container.Register<IAdminOperations, AdminOperations>(new PerRequestLifeTime());
             container.Register<IBlockOperations, BlockOperations>(new PerRequestLifeTime());
+            container.Register<IDirectionOperations, DirectionOperations>(new PerRequestLifeTime());
         }
     }
 }

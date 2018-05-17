@@ -10,7 +10,7 @@ namespace FitnessTracker.DataAccess
     {
         //CHANGE YOUR CONNECTION
         public FitnessContext()
-            : base("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=FitnessTrackerNew;Integrated Security=True;MultipleActiveResultSets=True")
+            : base("Data Source=(localdb)\\v11.0;Initial Catalog=FitnessTrackerNew;Integrated Security=True;MultipleActiveResultSets=True")
         {
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<FitnessContext, >());
         }

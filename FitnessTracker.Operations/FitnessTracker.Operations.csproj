@@ -47,6 +47,7 @@
     <Compile Include="Abstraction\IAuthenticationOperations.cs" />
     <Compile Include="Abstraction\IBlockOperations.cs" />
     <Compile Include="Abstraction\IDietOperations.cs" />
+    <Compile Include="Abstraction\IDirectionOperations.cs" />
     <Compile Include="Abstraction\IExpirationTokenOperations.cs" />
     <Compile Include="Abstraction\IMyPlanOperations.cs" />
     <Compile Include="Abstraction\INewsOperations.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Implementation\AdminOperations.cs" />
     <Compile Include="Implementation\AuthenticationOperations.cs" />
     <Compile Include="Implementation\BlockOperations.cs" />
+    <Compile Include="Implementation\DirectionOperations.cs" />
     <Compile Include="Implementation\ExpirationTokenOperations.cs" />
     <Compile Include="Implementation\MyPlanOperations.cs" />
     <Compile Include="Implementation\NewsOperations.cs" />
